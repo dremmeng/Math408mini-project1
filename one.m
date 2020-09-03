@@ -15,17 +15,17 @@ hold on
 plot(xvec,uvec,'g')
 plot(xvec,TaylorApprox,'b')
 % Define Lagrange polynomial interpolant
-P4 = @(x) [complete here]; 
+P4 =@(x) u(1).*(x-3).*(x-5).*(x-7).*(x-9)./((1-3)*(1-5)*(1-7)*(1-9))+ u(3).*(x-1).*(x-5).*(x-7).*(x-9)./((3-1)*(3-5)*(3-7)*(3-9))+ u(5).*(x-1).*(x-3).*(x-7).*(x-9)./((5-1)*(5-3)*(5-7)*(5-9))+ u(7).*(x-1).*(x-3).*(x-5).*(x-9)/((7-1)*(7-3)*(7-5)*(7-9))+ u(9).*(x-1).*(x-3).*(x-5).*(x-7)./((9-1)*(9-3)*(9-5)*(9-7)); 
 LagrangeApprox = P4(xvec);
 plot(xvec,LagrangeApprox,'r')
 hold off
 
 % Part (d)
 % Define Taylor approximation error estimate
-ET4 = @(x) [complete here]; 
+ET4 = @(x) exp(5/2)*((x-5).^4)/(48*4*2); 
 TaylorErrorEstimate = ET4(xvec);
 % Define Lagrange interpolation error estimate
-EP4 = @(x) [complete here];
+EP4 = @(x) x;
 LagrangeErrorEstimate = EP4(xvec);
 % Plot logs of error estimates
 figure
@@ -36,8 +36,8 @@ hold off
 
 % Part (e)
 % Plot logs of error estimates (again) and logs of actual errors
-TaylorErrorActual = [complete here];
-LagrangeErrorActual = [complete here];
+TaylorErrorActual = abs(uvec-TaylorApprox);
+LagrangeErrorActual = abs(uvec-LagrangeApprox);
 figure
 hold on
 plot(xvec,log(TaylorErrorEstimate),'b-.')
@@ -46,5 +46,5 @@ plot(xvec,log(TaylorErrorActual),'b')
 plot(xvec,log(LagrangeErrorActual),'r')
 hold off
 % Compute error ratios
-TaylorRatio = [complete here]
-LagrangeRatio = [complete here]
+TaylorRatio = (TaylorErrorActual/uvec)
+LagrangeRatio = (LagrangeErrorActual/uvec)
