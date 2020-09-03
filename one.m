@@ -7,7 +7,7 @@ u = @(x) exp(x/2);
 uvec = u(xvec);
 % Define Taylor polynomial approximation
 % Complete the code below
-T4 = @(x) exp(5/2)+ exp(5/2)*(x-5)/2+exp(5/2)*((x-5).^2)/8+exp(5/2)*((x-5).^3)/48;
+T4 = @(x) exp(5/2)+ exp(5/2)*(x-5)/2+exp(5/2)*((x-5).^2)/8+exp(5/2)*((x-5).^3)/48+exp(5/2)*((x-5).^4)/(48*4*2);
 TaylorApprox = T4(xvec);
 % Plot true function u along with the two approximations
 figure
@@ -22,10 +22,10 @@ hold off
 
 % Part (d)
 % Define Taylor approximation error estimate
-ET4 = @(x) exp(5/2)*((x-5).^4)/(48*4*2); 
+ET4 = @(x) exp(5/2)*((x-5).^5)/(5*4*3*2*2^5); 
 TaylorErrorEstimate = ET4(xvec);
 % Define Lagrange interpolation error estimate
-EP4 = @(x) x;
+EP4 = @(x) (exp(x/2)./((2^6)*6*5*4*3*2)).*(x-1).*(x-3).*(x-5).*(x-7).*(x-9);
 LagrangeErrorEstimate = EP4(xvec);
 % Plot logs of error estimates
 figure
