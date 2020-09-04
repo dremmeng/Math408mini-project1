@@ -1,0 +1,76 @@
+% LaTeX Article Template - customizing page format
+%
+% LaTeX document uses 10-point fonts by default.  To use
+% 11-point or 12-point fonts, use \documentclass[11pt]{article}
+% or \documentclass[12pt]{article}.
+\documentclass{article}
+
+% Set left margin - The default is 1 inch, so the following 
+% command sets a 1.25-inch left margin.
+\setlength{\oddsidemargin}{0.25in}
+
+% Set width of the text - What is left will be the right margin.
+% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+\setlength{\textwidth}{6in}
+
+% Set top margin - The default is 1 inch, so the following 
+% command sets a 0.75-inch top margin.
+\setlength{\topmargin}{-0.25in}
+
+% Set height of the text - What is left will be the bottom margin.
+% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+\setlength{\textheight}{8in}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{mathtools}
+\setlength{\parskip}{5pt} 
+\pagestyle{fancyplain}
+% Set the beginning of a LaTeX document
+\begin{document}
+
+\lhead{Drew Remmenga MATH 408}
+\rhead{Project \#1}
+%\lhead{Independent Study}
+%\rhead{R Lab}
+
+\begin{enumerate}
+
+\item \begin{enumerate}
+\item $T(x)=e^{(5/2)}(1+\frac{(x-5)}{2}+\frac{(x-5)^2}{8}+\frac{(x-5)^3}{48}+\frac{(x-5)^4}{384})$ \\
+
+$ L(x)=e^{1/2}\frac{(x-3)(x-5)(x-7)(x-9)}{384}+ e^{3/2}\frac{(x-1)(x-5)(x-7)(x-9)}{-96}+e^{5/2}\frac{(x-1)(x-3)(x-7)(x-9)}{64}+$\\$ e^{7/2}\frac{(x-1)(x-3)(x-5)(x-9)}{-96}+ e^{9/2}\frac{(x-1)(x-3)(x-5)(x-7)}{386}$
+
+\item 
+\item Taylor Error $=\left| \frac{e^{12/2}(x-5)^5}{3840}\right|$ \\
+Lagrange Error$=\left| \frac{e^{12/2}(x-1)(x-3)(x-5)(x-7)(x-9)}{3840}\right|$ 
+\item 
+\item
+\item 
+\end{enumerate}
+\item
+\begin{enumerate} 
+\item 
+\end{enumerate}
+\item
+\begin{enumerate}
+\item
+\end{enumerate}
+\item
+\begin{enumerate}
+\item
+\end{enumerate}
+\item
+\begin{enumerate}
+\item
+\end{enumerate}
+\item
+\begin{enumerate}
+\item
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+\end{document}
