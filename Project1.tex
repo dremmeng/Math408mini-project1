@@ -123,7 +123,19 @@ h = 2 returns [-0.1042, 0.3048, -0.4583, 0.2667, -0.0089]
 \end{enumerate}
 \item
 \begin{enumerate}
-\item
+\item 
+\begin{equation*}
+\begin{split}
+y_{1}(t) &= u(t) \\
+y_{2}(t) & = u'(t) \\
+y_{3}(t) &= v(t) \\
+y_{4}(t) &= v'(t) \\
+y'_{1}(t) = u'(t) &= y_{2}(t) \\
+y'_{2}(t) = u''(t) &= -\frac{y_{1}(t)}{(y_{1}(t)^{2}+y_{3}(t)^{2})^{3/2}}  \\
+y'_{3}(t) = v'(t) &= y_{4}(t) \\
+y'_{4}(t) = v''(t) &= -\frac{y_{3}(t)}{(y_{1}(t)^{2}+y_{3}(t)^{2})^{3/2}}  \\
+\end{split}
+\end{equation*}
 \item
 \item
 \item
