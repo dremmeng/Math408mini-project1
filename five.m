@@ -25,4 +25,4 @@ loglog(E2u, hvals,'o-','LineWidth',2)
 
 % "slopes" in loglog plot
 slopevec = 4.*log(hvals)
-accuracy_order = mean(log(hvals))
+accuracy_order = mean(diff(log(E2u))./diff(log(hvals)))

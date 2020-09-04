@@ -23,6 +23,8 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \setlength{\parskip}{5pt} 
 \pagestyle{fancyplain}
 % Set the beginning of a LaTeX document
@@ -36,39 +38,97 @@
 \begin{enumerate}
 
 \item \begin{enumerate}
-\item $T(x)=e^{(5/2)}(1+\frac{(x-5)}{2}+\frac{(x-5)^2}{8}+\frac{(x-5)^3}{48}+\frac{(x-5)^4}{384})$ \\
+\item 
+$
+T(x)=e^{(5/2)}(1+\frac{(x-5)}{2}+\frac{(x-5)^2}{8}+\frac{(x-5)^3}{48}+\frac{(x-5)^4}{384}) \\
+$
 
-$ L(x)=e^{1/2}\frac{(x-3)(x-5)(x-7)(x-9)}{384}+ e^{3/2}\frac{(x-1)(x-5)(x-7)(x-9)}{-96}+e^{5/2}\frac{(x-1)(x-3)(x-7)(x-9)}{64}+$\\$ e^{7/2}\frac{(x-1)(x-3)(x-5)(x-9)}{-96}+ e^{9/2}\frac{(x-1)(x-3)(x-5)(x-7)}{386}$
+
+$ L(x)=e^{1/2}\frac{(x-3)(x-5)(x-7)(x-9)}{384}+ e^{3/2}\frac{(x-1)(x-5)(x-7)(x-9)}{-96}+e^{5/2}\frac{(x-1)(x-3)(x-7)(x-9)}{64}+$\\$ e^{7/2}\frac{(x-1)(x-3)(x-5)(x-9)}{-96}+ e^{9/2}\frac{(x-1)(x-3)(x-5)(x-7)}{384}$
 
 \item 
-\item Taylor Error $=\left| \frac{e^{12/2}(x-5)^5}{3840}\right|$ \\
-Lagrange Error$=\left| \frac{e^{12/2}(x-1)(x-3)(x-5)(x-7)(x-9)}{3840}\right|$ 
+\item Taylor Error $=\left| f^{n+1}(\xi) \right|_{max} \frac{(x-c)^{(n+1)}}{(n+1)!}$ \\
+Taylor Error $=\left| e^{\xi/2} \right|_{max} \frac{(x-5)^5}{3840}$ \\
+Lagrange Error $\displaystyle = \left| f^{n+1}(\xi)\right |_{max} \frac{1}{(n+1)!} \prod_{i=0}^{n} (x-x_{i})$\\
+Lagrange Error$=\left| e^{\xi/2} \right|_{max} \frac{(x-1)(x-3)(x-5)(x-7)(x-9)}{3840}$ 
 \item 
 \item
-\item 
+\item Our Error estimates are seceral dozen times larger than the actual error indicated. This is because our first truncated term is much larger than the next term if we went one term further. This is due to the factorial part in particular when calculating our taylor and lagrange errors. 
 \end{enumerate}
-\item
-\begin{enumerate} 
 \item 
+\begin{equation*}
+\begin{split}
+\displaystyle L_{k}(x) & =\frac{1}{a_{k}} \prod_{j=1, j\neq k}^{n+1} (x-x_{j}) \\
+ln(L_{k}(x)) & =-ln(a_{k})+ \sum_{j=1, j \neq k}^{n+1}ln(x-x_{j}) \\
+\frac{L'_{k}(x)}{L_{k}(x)} &= \sum_{j=1, j \neq k}^{n+1} \frac{1}{(x-x_{j})} \\
+L'_{k}(x) &= L_{k}(x)\sum_{j=1, j \neq k}^{n+1} \frac{1}{(x-x_{j})}
+\end{split}
+\end{equation*}
+\item Given:
+\begin{equation*}
+\begin{split}
+\displaystyle u(h) =\mathcal{O}(v(h))  \text{ as } h \to 0 \\
+\implies \\
+\exists C \in \mathbb R_{>0} : \left| u(h) \right| < C\left| v(h) \right| \\
+\end{split}
+\end{equation*}
+We find without loss of generality that:
+\begin{equation*}
+\begin{split}
+\alpha u(h) & = \mathcal{O}(v(h)) \\
+\end{split}
+\end{equation*}
+Since we are dealing solely in magnitudes $\alpha$ can be negative and we still receive:
+\begin{equation*}
+\begin{split}
+\left| \alpha \right| \left| u(h) \right| &< C\left| v(h) \right| \\
+\alpha \left| u(h) \right| &< C\left| v(h) \right| \\
+ \left| u(h) \right| &< \frac{C}{\alpha} \left| v(h) \right| \\
+\end{split}
+\end{equation*}
+For:
+\begin{equation*}
+\begin{split}
+\frac{C}{\alpha} \in \mathbb R_{>0} \\
+\end{split}
+\end{equation*}
+\item
+\begin{equation*}
+\begin{split}
+p(x) &= \frac{(x-x_{2})(x-x_{3})u(x_{1})}{(x_{1}-x_{2})(x_{1}-x_{3})} +  \frac{(x-x_{1})(x-x_{3})u(x_{2})}{(x_{2}-x_{1})(x_{2}-x_{3})}+ \frac{(x-x_{1})(x-x_{2})u(x_{3})}{(x_{3}-x_{1})(x_{3}-x_{2})}\\
+p'(x) &= \frac{(2x-(x_{2}+x_{3}))u(x_{1})}{(x_{1}-x_{2})(x_{1}-x_{3})}+\frac{(2x-(x_{1}+x_{3}))u(x_{2})}{(x_{2}-x_{1})(x_{2}-x_{3})}+\frac{(2x-(x_{1}+x_{2}))u(x_{3})}{(x_{3}-x_{1})(x_{3}-x_{1})} \\
+p''(x) & = \frac{2u(x_{1})}{(x_{1}-x_{2})(x_{1}-x_{3})}+\frac{2u(x_{2})}{(x_{2}-x_{1})(x_{2}-x_{3})}+\frac{2u(x_{3})}{(x_{3}-x_{1})(x_{3}-x_{2})}\\
+\end{split}
+\end{equation*}
+Set:
+\begin{equation*}
+\begin{split}
+x_{1} = \bar{x}-h, x_{2} = \bar{x}, x_{3} = \bar{x}+h
+\end{split}
+\end{equation*}
+So:
+\begin{equation*}
+\begin{split}
+p''(\bar{x}) & = \frac{2u(\bar{x}-h)}{(\bar{x}-h-\bar{x})(\bar{x}-h-\bar{x}-h)}+\frac{2u(\bar{x})}{(\bar{x}-\bar{x}+h)(\bar{x}-\bar{x}-h)}+\frac{2u(\bar{x}+h)}{(\bar{x}+h-\bar{x}+h)(\bar{x}+h-\bar{x})}\\
+p''(\bar{x}) & = \frac{2u(\bar{x}-h)}{2h^{2}}+\frac{2u(\bar{x})}{-h^{2}}+\frac{2u(\bar{x}+h)}{2h^{2}}\\
+\end{split}
+\end{equation*}
+\item
+\begin{enumerate}
+\item fdcoeffF.m running with xbar = 1, second derivative: \\
+ h = 1 returns [-0.0833,1.3333,-2.5,1.3333,-0.0833] \\
+h = 2 returns [-0.1042, 0.3048, -0.4583, 0.2667, -0.0089] 
+\item
+\item
 \end{enumerate}
 \item
 \begin{enumerate}
 \item
-\end{enumerate}
 \item
-\begin{enumerate}
 \item
-\end{enumerate}
 \item
-\begin{enumerate}
-\item
-\end{enumerate}
-\item
-\begin{enumerate}
-\item
-\end{enumerate}
 
-
+\end{enumerate}
 \end{enumerate}
 
 
