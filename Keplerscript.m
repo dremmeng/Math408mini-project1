@@ -2,7 +2,7 @@
 % Kepler's equations for the two-body problem
 
 % Part (c)
-[t,y] = ode23(Twobody(t,y), [0 2*pi], [1;0;0;1]);
+[t,y] = ode23(@Twobody, [0 2*pi], [1;0;0;1]);
 % Part (d)
 % Plot solution in uv-plane
 figure
